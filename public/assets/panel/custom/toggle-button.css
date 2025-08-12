@@ -1,0 +1,79 @@
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    /* Diperbesar dari 70px */
+    height: 30px;
+}
+
+.toggle-switch input {
+    display: none;
+}
+
+.switch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    background-color: #e6e6e6;
+    position: relative;
+    height: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.switch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease;
+    height: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 28px;
+    color: white;
+}
+
+.switch-inner::before,
+.switch-inner::after {
+    content: attr(data-no);
+    width: 50%;
+    float: left;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.switch-inner::before {
+    content: attr(data-yes);
+    background-color: #28a745;
+}
+
+.switch-inner::after {
+    content: attr(data-no);
+    background-color: #dc3545;
+}
+
+.switch-slider {
+    display: block;
+    width: 27px;
+    height: 27px;
+    background: white;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+    transition: left 0.3s ease;
+}
+
+/* Toggle ON */
+.toggle-switch input:checked+.switch-label .switch-inner {
+    margin-left: 0;
+    padding-right: 30px;
+}
+
+.toggle-switch input:checked+.switch-label .switch-slider {
+    left: 52px;
+    /* Diperbesar agar sesuai lebar baru (80px - slider 26px - margin 2px) */
+}
